@@ -1,0 +1,42 @@
+# Python virtual environment
+venv/
+.venv/
+env/
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Git metadata
+.git/
+.gitignore
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local environment files
+.env
+.env.*
+
+# Logs and temporary files
+*.log
+*.tmp
+tmp/
+temp/
+
+# Build / packaging artifacts
+build/
+dist/
+*.egg-info/
+.Python
+
+# Project-specific local artifacts
+*.sqlite3

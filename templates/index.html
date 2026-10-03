@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        .done {
+            text-decoration: line-through;
+            color: #666;
+        }
+        .pending {
+            color: #000;
+        }
+        li {
+            margin: 8px 0;
+        }
+        form {
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <h1>To-Do List Saya</h1>
+
+    <form action="/add" method="POST">
+        <input type="text" name="task" placeholder="Tulis tugas baru...">
+        <button type="submit">Tambah</button>
+    </form>
+
+    <ul>
+        {% for task in tasks %}
+        <li class="{{ 'done' if task.done else 'pending' }}">
+            <form action="/complete/{{ loop.index0 }}" method="POST" style="display:inline;">
+                <input type="checkbox" name="done" {% if task.done %}checked{% endif %} onchange="this.form.submit()">
+            </form>
+            <span>{{ task.text }}</span>
+            <a href="/delete/{{ loop.index0 }}">[Hapus]</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
